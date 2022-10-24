@@ -1,0 +1,16 @@
+[nginx]
+avdeev.online
+[wordpress]
+app.avdeev.online
+[mysql]
+db01.avdeev.online mysql_server_id=1 mysql_replication_role=master
+db02.avdeev.online mysql_server_id=2 mysql_replication_role=slave
+[monitoring]
+monitoring.avdeev.online
+[gitlab]
+gitlab.avdeev.online
+[runner]
+runner.avdeev.online
+
+[all:vars]
+ansible_ssh_common_args= "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J avdeevvl@avdeev.online"

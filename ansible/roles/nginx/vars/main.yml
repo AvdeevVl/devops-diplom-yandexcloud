@@ -1,0 +1,4 @@
+ansible_user: avdeevvl
+letsencrypt_email: avdeevvl@avdeev.online
+domain_name: avdeev.online
+domain_names: avdeev.online,www.avdeev.online,grafana.avdeev.online,prometheus.avdeev.online,alertmanager.avdeev.online,gitlab.avdeev.online
