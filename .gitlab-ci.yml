@@ -13,7 +13,7 @@ deploy-job:
   stage: deploy
   script:
     - echo "Deploy"
-    - ssh -o StrictHostKeyChecking=no ubuntu@app.avdeev.online sudo chown ubuntu /var/www/www.avdeev.online/wordpress/ -R
-    - rsync -rvz -e "ssh -o StrictHostKeyChecking=no" ./* ubuntu@app.avdeev.online:/var/www/www.avdeev.online/wordpress/
-    - ssh -o StrictHostKeyChecking=no ubuntu@app.avdeev.online rm -rf /var/www/www.avdeev.online/wordpress/.git
-    - ssh -o StrictHostKeyChecking=no ubuntu@app.avdeev.online sudo chown www-data /var/www/www.avdeev.online/wordpress/ -R
+    - ssh -o StrictHostKeyChecking=no avdeevvl@app.avdeev.online sudo chown avdeevvl /var/www/www.avdeev.online/wordpress/ -R
+    - rsync -rvz -e "ssh -o StrictHostKeyChecking=no" ./* avdeevvl@app.avdeev.online:/var/www/www.avdeev.online/wordpress/
+    - ssh -o StrictHostKeyChecking=no avdeevvl@app.avdeev.online rm -rf /var/www/www.avdeev.online/wordpress/.git
+    - ssh -o StrictHostKeyChecking=no avdeevvl@app.avdeev.online sudo chown www-data /var/www/www.avdeev.online/wordpress/ -R
