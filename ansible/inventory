@@ -1,16 +1,40 @@
 [nginx]
-avdeev.online
+avdeev.online ansible_host=84.201.158.131 ansible_user=ubuntu
+[nginx:vars]
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+
+[db01]
+db01.avdeev.online mysql_server_id=1 mysql_replication_role=master
+[db01:vars]
+ansible_host=192.168.101.104
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ubuntu@avdeev.online -o StrictHostKeyChecking=no"'
+
+[db02]
+db02.avdeev.online mysql_server_id=2 mysql_replication_role=slave
+[b02:vars]
+ansible_host=192.168.101.105
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ubuntu@avdeev.online -o StrictHostKeyChecking=no"'
+
 [wordpress]
 app.avdeev.online
-[mysql]
-db01.avdeev.online mysql_server_id=1 mysql_replication_role=master
-db02.avdeev.online mysql_server_id=2 mysql_replication_role=slave
-[monitoring]
-monitoring.avdeev.online
+[wordpress:vars]
+ansible_host=192.168.102.100
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ubuntu@avdeev.online -o StrictHostKeyChecking=no"'
+
 [gitlab]
 gitlab.avdeev.online
+[gitlab:vars]
+ansible_host=192.168.102.102
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ubuntu@avdeev.online -o StrictHostKeyChecking=no"'
+
 [runner]
 runner.avdeev.online
+[runner:vars]
+ansible_host=192.168.102.103
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ubuntu@avdeev.online -o StrictHostKeyChecking=no"'
 
-[all:vars]
-ansible_ssh_common_args= "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -J avdeevvl@avdeev.online"
+[monitoring]
+monitoring.avdeev.online
+[monitoring:vars]
+ansible_host=192.168.102.101
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -W %h:%p -q ubuntu@avdeev.online -o StrictHostKeyChecking=no"

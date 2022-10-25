@@ -2,15 +2,15 @@
 - hosts: nginx
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - nginx
   - node-exporter
 
-- hosts: db01
+- hosts:  db01
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - mysql
   - node-exporter
@@ -18,7 +18,7 @@
 - hosts: db02
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - mysql
   - node-exporter
@@ -26,7 +26,7 @@
 - hosts: wordpress
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - wordpress
   - node-exporter
@@ -34,7 +34,7 @@
 - hosts: gitlab
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - gitlab
   - node-exporter
@@ -45,7 +45,7 @@
 - hosts: runner
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - runner
   - node-exporter
@@ -53,7 +53,7 @@
 - hosts: monitoring
   become: yes
   become_user: root
-  remote_user: avdeevvl
+  remote_user: ubuntu
   roles:
   - prometheus
   - alertmanager

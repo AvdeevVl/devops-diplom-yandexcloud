@@ -1,10 +1,10 @@
 # https://console.cloud.yandex.ru/cloud?section=overview
 variable "yandex_cloud_id" {
-  default = "b1gu1gt5nqi6lqgu3t7s"
+  default = "b1g3o7gjj3agmvdo9j48"
 }
 
 
 # https://console.cloud.yandex.ru/cloud?section=overview
 variable "yandex_folder_id" {
-  default = "b1gaec42k169jqpo02f7"
+  default = "b1gvtrm6k3eqkc63ph0e"
 }
